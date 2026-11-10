@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Azafrán · Recetas fáciles para todos los días</title>
+  <meta name="description" content="Azafrán: recetas caseras, rápidas y apetitosas. Busca por ingrediente o por tiempo y ajusta las porciones al instante.">
+
+  <!-- Tipografías (si no cargan, la página usa las del sistema) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== CABECERA ========== -->
+  <header class="cabecera">
+    <a class="marca" href="#">Azafrán</a>
+    <nav class="menu">
+      <a href="#destacada">Destacada</a>
+      <a href="#recetas">Recetas</a>
+    </nav>
+  </header>
+
+  <!-- ========== PORTADA CON BUSCADOR ========== -->
+  <section class="portada">
+    <h1>Cocina rico, <span>sin complicarte</span></h1>
+    <p>Recetas caseras para todos los días. Busca por ingrediente o por el tiempo que tengas.</p>
+
+    <div class="buscador">
+      <input type="search" id="campo-busqueda"
+             placeholder="Busca un ingrediente: pollo, tomate, queso…"
+             aria-label="Buscar recetas por ingrediente">
+
+      <select id="filtro-tiempo" aria-label="Filtrar por tiempo de preparación">
+        <option value="0">Cualquier tiempo</option>
+        <option value="15">Hasta 15 min</option>
+        <option value="30">Hasta 30 min</option>
+        <option value="60">Hasta 60 min</option>
+      </select>
+    </div>
+  </section>
+
+  <main>
+
+    <!-- ========== RECETA DESTACADA ========== -->
+    <section id="destacada" class="seccion">
+      <h2>Receta destacada</h2>
+
+      <article class="destacada">
+        <div class="destacada-imagen">
+          <img src="img/tacos-pollo.jpg"
+               alt="Tacos de pollo con rodajas de limón"
+               width="1000" height="1000">
+        </div>
+
+        <div class="destacada-contenido">
+          <span class="etiqueta">La favorita de la semana</span>
+          <h3>Tacos de pollo al limón</h3>
+          <p>Jugosos, frescos y listos en media hora. Perfectos para una cena entre amigos.</p>
+
+          <ul class="datos">
+            <li>🔪 Preparación: <strong>10 min</strong></li>
+            <li>Cocción: <strong>20 min</strong></li>
+            <li>Dificultad: <strong>Fácil</strong></li>
+          </ul>
+
+          <!-- Calculador de porciones -->
+          <div class="porciones">
+            <span class="porciones-texto">Porciones (personas):</span>
+            <div class="porciones-controles">
+              <button type="button" id="boton-menos" aria-label="Quitar una porción">−</button>
+              <input type="number" id="campo-porciones" value="4" min="1" max="20" aria-label="Número de porciones">
+              <button type="button" id="boton-mas" aria-label="Añadir una porción">+</button>
+            </div>
+          </div>
+
+          <h4>Ingredientes</h4>
+          <!-- Esta lista está vacía a propósito: la rellena script.js -->
+          <ul id="lista-ingredientes" class="ingredientes"></ul>
+        </div>
+      </article>
+    </section>
+
+    <!-- ========== TODAS LAS RECETAS ========== -->
+    <section id="recetas" class="seccion">
+      <h2>Todas las recetas</h2>
+
+      <div class="rejilla">
+
+        <!-- Cada tarjeta guarda sus ingredientes y su tiempo en "data-..." para poder filtrar -->
+        <article class="tarjeta" data-ingredientes="pasta, tomate, ajo, albahaca, aceite de oliva" data-tiempo="20">
+          <img class="tarjeta-imagen" loading="lazy" width="600" height="400"
+               src="img/pasta-pomodoro.jpg"
+               alt="Plato de espaguetis con salsa de tomate">
+          <div class="tarjeta-cuerpo">
+            <h3>Pasta al pomodoro</h3>
+            <p class="tarjeta-ingredientes">Pasta, tomate, ajo, albahaca</p>
+            <span class="tiempo">20 min</span>
+          </div>
+        </article>
+
+        <article class="tarjeta" data-ingredientes="lechuga, pollo, queso parmesano, pan, limón" data-tiempo="15">
+          <img class="tarjeta-imagen" loading="lazy" width="600" height="400"
+               src="img/ensalada.jpg"
+               alt="Ensalada César con picatostes">
+          <div class="tarjeta-cuerpo">
+            <h3>Ensalada César</h3>
+            <p class="tarjeta-ingredientes">Lechuga, pollo, parmesano, pan</p>
+            <span class="tiempo">15 min</span>
+          </div>
+        </article>
+
+        <article class="tarjeta" data-ingredientes="huevo, patata, cebolla, aceite de oliva, sal" data-tiempo="40">
+          <img class="tarjeta-imagen" loading="lazy" width="600" height="400"
+               src="img/tortilla-patatas.jpg"
+               alt="Tortilla de patatas dorada en un plato">
+          <div class="tarjeta-cuerpo">
+            <h3>Tortilla de patatas</h3>
+            <p class="tarjeta-ingredientes">Huevo, patata, cebolla</p>
+            <span class="tiempo">40 min</span>
+          </div>
+        </article>
+
+        <article class="tarjeta" data-ingredientes="calabaza, cebolla, zanahoria, nata, caldo" data-tiempo="35">
+          <img class="tarjeta-imagen" loading="lazy" width="600" height="400"
+               src="img/crema-calabaza.jpg"
+               alt="Cuenco de crema de calabaza">
+          <div class="tarjeta-cuerpo">
+            <h3>Crema de calabaza</h3>
+            <p class="tarjeta-ingredientes">Calabaza, zanahoria, cebolla, nata</p>
+            <span class="tiempo">35 min</span>
+          </div>
+        </article>
+
+        <article class="tarjeta" data-ingredientes="arroz, pollo, pimiento, guisantes, tomate, azafrán" data-tiempo="60">
+          <img class="tarjeta-imagen" loading="lazy" width="600" height="400"
+               src="img/arroz-pollo.jpg"
+               alt="Sartén de arroz con pollo">
+          <div class="tarjeta-cuerpo">
+            <h3>Arroz con pollo</h3>
+            <p class="tarjeta-ingredientes">Arroz, pollo, pimiento, guisantes</p>
+            <span class="tiempo">60 min</span>
+          </div>
+        </article>
+
+        <article class="tarjeta" data-ingredientes="aguacate, pan, huevo, tomate, limón" data-tiempo="10">
+          <img class="tarjeta-imagen" loading="lazy" width="600" height="400"
+               src="img/tostada-aguacate.jpg"
+               alt="Tostadas de aguacate con huevo">
+          <div class="tarjeta-cuerpo">
+            <h3>Tostada de aguacate</h3>
+            <p class="tarjeta-ingredientes">Aguacate, pan, huevo, tomate</p>
+            <span class="tiempo">10 min</span>
+          </div>
+        </article>
+
+        <article class="tarjeta" data-ingredientes="salmón, limón, eneldo, patata, mantequilla" data-tiempo="25">
+          <img class="tarjeta-imagen" loading="lazy" width="600" height="400"
+               src="img/salmon.jpg"
+               alt="Salmón al horno con verduras">
+          <div class="tarjeta-cuerpo">
+            <h3>Salmón al horno</h3>
+            <p class="tarjeta-ingredientes">Salmón, limón, eneldo, patata</p>
+            <span class="tiempo">25 min</span>
+          </div>
+        </article>
+
+        <article class="tarjeta" data-ingredientes="harina, huevo, leche, mantequilla, azúcar" data-tiempo="15">
+          <img class="tarjeta-imagen" loading="lazy" width="600" height="400"
+               src="img/tortitas.jpg"
+               alt="Torre de tortitas con arándanos y plátano">
+          <div class="tarjeta-cuerpo">
+            <h3>Tortitas esponjosas</h3>
+            <p class="tarjeta-ingredientes">Harina, huevo, leche, mantequilla</p>
+            <span class="tiempo">15 min</span>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Mensaje que solo aparece si ninguna receta coincide con la búsqueda -->
+      <p id="sin-resultados" class="sin-resultados oculta">
+        No encontramos recetas con esa búsqueda. Prueba con otro ingrediente o más tiempo.
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="pie">
+    <p>© Azafrán, Todos los derechos reservados</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,385 @@
+/* ========== COLORES Y AJUSTES GENERALES ========== */
+:root {
+  --crema: #fff8f0;
+  --blanco: #ffffff;
+  --tomate: #e4572e;
+  --tomate-oscuro: #c2431f;
+  --verde: #4c956c;
+  --texto: #2b2118;
+  --texto-suave: #6f6257;
+  --borde: #f0e2d3;
+  --sombra: 0 8px 24px rgba(43, 33, 24, 0.08);
+  --radio: 18px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--crema);
+  color: var(--texto);
+  line-height: 1.6;
+}
+
+h1, h2, h3, .marca {
+  font-family: "Fraunces", Georgia, serif;
+  line-height: 1.2;
+}
+
+/* ========== CABECERA ========== */
+.cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.marca {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--tomate);
+  text-decoration: none;
+}
+
+.menu a {
+  margin-left: 20px;
+  color: var(--texto);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.menu a:hover {
+  color: var(--tomate);
+}
+
+/* ========== PORTADA Y BUSCADOR ========== */
+.portada {
+  text-align: center;
+  padding: 48px 20px 56px;
+  background: linear-gradient(160deg, #ffe8d1 0%, #fff8f0 60%);
+}
+
+.portada h1 {
+  font-size: clamp(2rem, 6vw, 3.4rem);
+  margin-bottom: 12px;
+}
+
+.portada h1 span {
+  color: var(--tomate);
+}
+
+.portada p {
+  color: var(--texto-suave);
+  max-width: 520px;
+  margin: 0 auto 28px;
+}
+
+.buscador {
+  display: flex;
+  gap: 10px;
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--blanco);
+  padding: 10px;
+  border-radius: 999px;
+  box-shadow: var(--sombra);
+}
+
+.buscador input,
+.buscador select {
+  border: none;
+  background: transparent;
+  font: inherit;
+  color: var(--texto);
+  padding: 10px 14px;
+  border-radius: 999px;
+  min-width: 0;
+}
+
+.buscador input {
+  flex: 1;
+}
+
+.buscador select {
+  background: var(--crema);
+  cursor: pointer;
+}
+
+.buscador input:focus,
+.buscador select:focus {
+  outline: 2px solid var(--tomate);
+}
+
+/* ========== SECCIONES ========== */
+.seccion {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px 8px;
+}
+
+.seccion h2 {
+  font-size: 1.7rem;
+  margin-bottom: 20px;
+}
+
+/* ========== RECETA DESTACADA ========== */
+.destacada {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  background: var(--blanco);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  overflow: hidden;
+}
+
+/* La caja marca el tamaño y la foto la rellena entera sin deformarse */
+.destacada-imagen {
+  position: relative;
+  min-height: 260px;
+  background: linear-gradient(135deg, #ffd166, #f79d65); /* se ve mientras carga la foto */
+}
+
+.destacada-imagen img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.destacada-contenido {
+  padding: 28px;
+}
+
+.etiqueta {
+  display: inline-block;
+  background: #e3f3e8;
+  color: var(--verde);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+
+.destacada-contenido h3 {
+  font-size: 1.9rem;
+  margin-bottom: 8px;
+}
+
+.destacada-contenido > p {
+  color: var(--texto-suave);
+  margin-bottom: 16px;
+}
+
+.datos {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.datos li {
+  background: var(--crema);
+  border: 1px solid var(--borde);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+}
+
+/* --- Calculador de porciones --- */
+.porciones {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: var(--crema);
+  border: 1px solid var(--borde);
+  border-radius: 14px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+}
+
+.porciones-texto {
+  font-weight: 600;
+}
+
+.porciones-controles {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.porciones-controles button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: var(--tomate);
+  color: var(--blanco);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.porciones-controles button:hover {
+  background: var(--tomate-oscuro);
+}
+
+.porciones-controles button:active {
+  transform: scale(0.92);
+}
+
+.porciones-controles input {
+  width: 64px;
+  height: 40px;
+  text-align: center;
+  font: inherit;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  background: var(--blanco);
+  color: var(--texto);
+}
+
+.destacada-contenido h4 {
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+}
+
+.ingredientes {
+  list-style: none;
+}
+
+.ingredientes li {
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--borde);
+}
+
+.ingredientes li:last-child {
+  border-bottom: none;
+}
+
+.ingredientes strong {
+  color: var(--tomate);
+}
+
+/* ========== REJILLA DE RECETAS ========== */
+.rejilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.tarjeta {
+  background: var(--blanco);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.tarjeta:hover {
+  transform: translateY(-4px);
+}
+
+.tarjeta-imagen {
+  display: block;
+  width: 100%;
+  height: 170px;
+  object-fit: cover;        /* recorta la foto en vez de aplastarla */
+  background: var(--borde); /* color de relleno mientras carga */
+}
+
+.tarjeta-cuerpo {
+  padding: 16px;
+}
+
+.tarjeta-cuerpo h3 {
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+
+.tarjeta-ingredientes {
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.tiempo {
+  display: inline-block;
+  background: var(--crema);
+  border: 1px solid var(--borde);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.sin-resultados {
+  text-align: center;
+  color: var(--texto-suave);
+  padding: 32px 0;
+}
+
+/* Clase que usa script.js para esconder cosas */
+.oculta {
+  display: none;
+}
+
+/* ========== PIE ========== */
+.pie {
+  text-align: center;
+  color: var(--texto-suave);
+  padding: 40px 20px;
+  font-size: 0.9rem;
+}
+
+/* ========== MÓVIL Y TABLET ========== */
+@media (max-width: 760px) {
+  .destacada {
+    grid-template-columns: 1fr;
+  }
+
+  .destacada-imagen {
+    min-height: 220px;
+  }
+
+  .destacada-contenido {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 520px) {
+  .cabecera {
+    padding: 14px 16px;
+  }
+
+  .menu a {
+    margin-left: 14px;
+    font-size: 0.95rem;
+  }
+
+  .buscador {
+    flex-direction: column;
+    border-radius: var(--radio);
+  }
+
+  .buscador select {
+    width: 100%;
+  }
+}
